@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/E:/Learn/PRX301/ProjectEarphone/src/java/thaitd/xsd/tainghe.xsd" uri="src/conf/xml-resources/jaxb/Earphone/tainghe.xsd"/>
+</catalog>

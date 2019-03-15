@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://xml.netbeans.org/schema/earphoneList"
+           xmlns="http://xml.netbeans.org/schema/earphoneList"
+           elementFormDefault="qualified">
+    <xs:element name="earphoneList">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="detail" type="earPhoneDetail" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="earPhoneDetail">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="price" type="xs:integer"/>
+            <xs:element name="image" type="xs:string"/>
+            <xs:element name="category" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
