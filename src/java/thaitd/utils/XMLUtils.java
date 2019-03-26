@@ -30,6 +30,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.SchemaFactory;
 import org.xml.sax.InputSource;
 import thaitd.generateDTO.EarPhoneDetail;
 import thaitd.generateDTO.EarphoneList;
@@ -39,6 +40,19 @@ import thaitd.generateDTO.EarphoneList;
  * @author ThaiT
  */
 public class XMLUtils {
+
+    public static XMLStreamReader parseStringToStAXCursor(String s) {
+        XMLStreamReader reader = null;
+        try {
+            XMLInputFactory factory = XMLInputFactory.newInstance();
+            factory.setProperty(XMLInputFactory.IS_REPLACING_ENTITY_REFERENCES, false);
+            factory.setProperty(XMLInputFactory.IS_VALIDATING, false);
+            reader = factory.createXMLStreamReader(new StringReader(s));
+
+        } catch (XMLStreamException ex) {
+        }
+        return reader;
+    }
 
     public String transform(String source_xml, String xsd) throws TransformerConfigurationException, TransformerException {
         Transformer tf = TransformerFactory.newInstance().newTransformer(new StreamSource(new StringReader(xsd)));
@@ -133,5 +147,10 @@ public class XMLUtils {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static boolean checkValidate(String xml, String schema) {
+//        SchemaFactory factory = SchemaFactory.newInstance();
+        return false;
     }
 }

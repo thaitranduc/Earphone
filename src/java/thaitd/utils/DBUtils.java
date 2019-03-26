@@ -7,6 +7,8 @@ package thaitd.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -21,6 +23,18 @@ public class DBUtils {
         String connectionURL = "jdbc:sqlserver://localhost:1433;databaseName=DBProject;username=sa;password=123";
         conn = DriverManager.getConnection(connectionURL);
         return conn;
+    }
+
+    public void closeMyConnection(Connection conn, PreparedStatement preStm, ResultSet rs) throws SQLException {
+        if (rs != null) {
+            rs.close();
+        }
+        if (preStm != null) {
+            preStm.close();
+        }
+        if (conn != null) {
+            conn.close();
+        }
     }
 
 //    public void insertToDB(List<Tainghe> list) throws ClassNotFoundException, SQLException {
@@ -41,5 +55,4 @@ public class DBUtils {
 //            conn.commit();
 //        }
 //    }
-   
 }

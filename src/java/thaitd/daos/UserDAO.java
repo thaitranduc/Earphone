@@ -48,12 +48,7 @@ public class UserDAO {
         try {
             conn = db.getMyConnection();
             if (conn != null) {
-                String sql = "SELECT T2.taingheID, T2.taingheName,T2.taingheImage,T2.tainghePrice, c.categoryName "
-                        + "FROM( "
-                        + "SELECT t.taingheID, t.taingheName,t.taingheImage,t.tainghePrice, t.categoryId, "
-                        + "ROW_NUMBER() over(partition by T.categoryId order by T.taingheID ASC) as rn "
-                        + "FROM tainghe t) AS T2, dbo.category c "
-                        + "WHERE T2.rn<=10 and T2.tainghePrice>0 and c.categoryID = T2.categoryID ";
+                String sql = "SELECT  T2.taingheName,T2.taingheImage,T2.tainghePrice , T2.frequency, T2.impedance, T2.sensitivity FROM( SELECT t.taingheName,t.taingheImage,t.tainghePrice, t.impedance, t.sensitivity, t.frequency,ROW_NUMBER() over(partition by T.taingheName order by T.id ASC) as rn FROM tainghe t) AS T2 WHERE T2.rn<=10 and T2.tainghePrice>0 and (T2.frequency>0 or T2.impedance>0 or T2.sensitivity>0)";
                 preStm = conn.prepareStatement(sql);
                 rs = preStm.executeQuery();
                 epl = new EarphoneList();
@@ -61,7 +56,10 @@ public class UserDAO {
                     EarPhoneDetail epd = new EarPhoneDetail();
                     epd.setName(rs.getString("taingheName"));
                     epd.setImage(rs.getString("taingheImage"));
-                    epd.setPrice(BigInteger.valueOf(rs.getInt("tainghePrice")));
+                    epd.setPrice(rs.getString("tainghePrice"));
+                    epd.setFrequency(rs.getString("frequency"));
+                    epd.setImpedance(rs.getString("impedance"));
+                    epd.setSensitivity(rs.getString("sensitivity"));
                     epl.getDetail().add(epd);
                 }
             }

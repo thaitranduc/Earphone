@@ -12,6 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Crawl source web</h1>
+        <form action="ProcessServlet" method="POST" >
+            <input type="submit" value="Crawl" name="btAction" />
+        </form>
     </body>
 </html>

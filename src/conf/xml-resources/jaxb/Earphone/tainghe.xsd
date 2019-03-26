@@ -20,9 +20,11 @@ and open the template in the editor.
     <xs:complexType name="earPhoneDetail">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
-            <xs:element name="price" type="xs:integer"/>
+            <xs:element name="price" type="xs:string"/>
             <xs:element name="image" type="xs:string"/>
-            <xs:element name="category" type="xs:string"/>
+            <xs:element name="frequency" type="xs:string"/>
+            <xs:element name="impedance" type="xs:string"/>
+            <xs:element name="sensitivity" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

@@ -39,7 +39,7 @@
                 if (node == null) {
                     return;
                 }
-                if (node.tagName == "name") {
+                if (node.tagName.toString().toUpperCase() == "name") {
                     var temp = node.firstChild.nodeValue;
                     if (temp.indexOf(strSearch, 0) > -1) {
                         count++;
@@ -63,7 +63,8 @@
                 } else {
                     xmlDOM.async = false;
                     xmlDOM.loadXML(regObj);
-                    if (xmlDOM.parseError.errorCode !== 0) {
+                    console.log(xmlDOM);
+                    if (xmlDOM.parseError.errorCode != 0) {
                         alert("Error: " + xmlDOM.parseError.reason);
                     } else {
                         var tableElem = document.getElementById(tableName);
@@ -76,17 +77,7 @@
                     }
                 }
             }
-            function update() {
-                xmlHttp = GetXmlHttpObject();
-                if (xmlHttp == null) {
-                    alert("Not support AJAX");
-                    return;
-                }
-                var url = "MarshallToJavaScript";
-                xmlHttp.open("GET", url, true);
-                xmlHttp.send(null);
-                xmlDOM = xmlHttp.responseXML;
-            }
+
 
             function GetXmlHttpObject() {
                 var xmlHttp = null;
@@ -118,7 +109,7 @@
         <script>regObj = '${requestScope.INFO}';</script>
         <form name="myForm">
             Search <input type="text" name="txtName" value=""/>
-            <input type="button" value="Search" name="btSearch" onclick="return searchProcess('dataTable');"
+            <input type="button" value="Search" name="btSearch" onclick="return searchProcess('dataTable');"/>
         </form><br/><br/>
         <table border="1" id="dataTable">
             <tr>

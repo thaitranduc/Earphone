@@ -14,7 +14,6 @@
                 <th>Price</th>
                 <th>Image</th>
             </tr>        
-            
             <xsl:for-each select="EarPhoneDetail">
                 <tr>
                     <td>
@@ -38,7 +37,6 @@
                     </td>
                 </tr>
             </xsl:for-each>
-            
         </table>
     </xsl:template>
 </xsl:stylesheet>

@@ -4,6 +4,22 @@
         <description>RequestListener</description>
         <listener-class>thaitd.servlets.RequestServletListener</listener-class>
     </listener>
+    <servlet>
+        <servlet-name>CrawlWebServlet</servlet-name>
+        <servlet-class>thaitd.servlets.CrawlWebServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcessServlet</servlet-name>
+        <servlet-class>thaitd.servlets.ProcessServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CrawlWebServlet</servlet-name>
+        <url-pattern>/CrawlWebServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessServlet</servlet-name>
+        <url-pattern>/ProcessServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
