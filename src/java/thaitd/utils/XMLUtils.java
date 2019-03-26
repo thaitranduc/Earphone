@@ -48,7 +48,6 @@ public class XMLUtils {
             factory.setProperty(XMLInputFactory.IS_REPLACING_ENTITY_REFERENCES, false);
             factory.setProperty(XMLInputFactory.IS_VALIDATING, false);
             reader = factory.createXMLStreamReader(new StringReader(s));
-
         } catch (XMLStreamException ex) {
         }
         return reader;
@@ -87,20 +86,31 @@ public class XMLUtils {
         return reader;
     }
 
-    public static String getTextStAXContext(XMLStreamReader reader, String elementName) throws XMLStreamException {
+    public static String getTextStAXContext(XMLStreamReader reader, String elementName) {
         if (reader != null) {
-            while (reader.hasNext()) {
-                int cursor = reader.getEventType();
-                if (cursor == XMLStreamConstants.START_ELEMENT) {
-                    String tagName = reader.getLocalName();
-                    String result = null;
-                    if (tagName.equals(elementName)) {
-                        reader.next();
-                        result = reader.getText();
-                        return result;
+            try {
+                while (reader.hasNext()) {
+                    int cursor = reader.getEventType();
+                    if (cursor == XMLStreamConstants.START_ELEMENT) {
+                        String tagName = reader.getLocalName();
+                        String result = null;
+                        if (tagName.equals(elementName)) {
+                            try {
+                                reader.next();//1 số trường hợp nhiều thẻ nằm lồng vào nhau
+                                while (reader != null && reader.isStartElement() && !reader.toString().isEmpty()) {
+                                    reader.next();
+                                }
+                                result = reader.getText();
+                                return result;
+                            } catch (XMLStreamException ex) {
+                                Logger.getLogger(XMLUtils.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
                     }
+                    reader.next();
                 }
-                reader.next();
+            } catch (XMLStreamException ex) {
+                Logger.getLogger(XMLUtils.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return null;

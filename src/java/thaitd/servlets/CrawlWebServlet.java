@@ -43,10 +43,10 @@ public class CrawlWebServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         CrawlASV crawl = new CrawlASV();
-//        crawl.run();
-        for (int i = 0; i < 30; i++) {
-            crawl.crawLinkTNV("http://www.taingheviet.com/category/tai-nghe?page=" + i);
-        }
+        crawl.run();
+//        for (int i = 0; i < 30; i++) {
+//            crawl.crawLinkTNV("http://www.taingheviet.com/category/tai-nghe?page=" + i);
+//        }
         out.close();
     }
 
