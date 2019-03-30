@@ -3,10 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/Learn/PRX301/Earphone/src/java/thaitd/constants/StringConstant.java</file>
             <file>file:/E:/Learn/PRX301/Earphone/src/java/thaitd/utils/config.properties</file>
-            <file>file:/E:/Learn/PRX301/Earphone/src/java/thaitd/daos/CrawlASV.java</file>
+            <file>file:/E:/Learn/PRX301/Earphone/build/generated-sources/jaxb/thaitd/generateDTO/EarPhoneDetail.java</file>
+            <file>file:/E:/Learn/PRX301/Earphone/web/home.jsp</file>
+            <file>file:/E:/Learn/PRX301/Earphone/src/java/thaitd/daos/UserDAO.java</file>
+            <file>file:/E:/Learn/PRX301/Earphone/src/java/thaitd/utils/RegexUtils.java</file>
+            <file>file:/E:/Learn/PRX301/Earphone/src/java/thaitd/xsd/tainghe.xsd</file>
+            <file>file:/E:/Learn/PRX301/Earphone/build/generated-sources/jaxb/thaitd/generateDTO/EarphoneList.java</file>
+            <file>file:/E:/Learn/PRX301/Earphone/src/java/thaitd/utils/XMLUtils.java</file>
+            <file>file:/E:/Learn/PRX301/Earphone/src/java/thaitd/servlets/CrawlWebServlet.java</file>
             <file>file:/E:/Learn/PRX301/Earphone/src/java/thaitd/utils/DataUtils.java</file>
-            <file>file:/E:/Learn/PRX301/Earphone/src/java/thaitd/constants/StringXMLConstant.java</file>
+            <file>file:/E:/Learn/PRX301/Earphone/src/java/thaitd/servlets/ProcessServlet.java</file>
+            <file>file:/E:/Learn/PRX301/Earphone/src/java/thaitd/daos/CrawlWeb.java</file>
+            <file>file:/E:/Learn/PRX301/Earphone/src/java/thaitd/servlets/RequestServletListener.java</file>
         </group>
     </open-files>
 </project-private>

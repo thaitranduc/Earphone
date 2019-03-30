@@ -5,12 +5,12 @@
  */
 package thaitd.daos;
 
-import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import thaitd.constants.StringConstant;
 import thaitd.generateDTO.EarPhoneDetail;
 import thaitd.generateDTO.EarphoneList;
 import thaitd.utils.DBUtils;
@@ -43,12 +43,12 @@ public class UserDAO {
         }
     }
 
-    public EarphoneList get10FirstEarphone() {
+    public EarphoneList getEarphoneHasDetailValue() {
         DBUtils db = new DBUtils();
         try {
             conn = db.getMyConnection();
             if (conn != null) {
-                String sql = "SELECT  T2.taingheName,T2.taingheImage,T2.tainghePrice , T2.frequency, T2.impedance, T2.sensitivity FROM( SELECT t.taingheName,t.taingheImage,t.tainghePrice, t.impedance, t.sensitivity, t.frequency,ROW_NUMBER() over(partition by T.taingheName order by T.id ASC) as rn FROM tainghe t) AS T2 WHERE T2.rn<=10 and T2.tainghePrice>0 and (T2.frequency>0 or T2.impedance>0 or T2.sensitivity>0)";
+                String sql = "SELECT  taingheName,taingheImage,tainghePrice , frequency, impedance, sensitivity FROM dbo.tainghe WHERE frequency NOT LIKE 'NO VALUE' OR sensitivity NOT LIKE 'NO VALUE' OR impedance NOT LIKE 'NO VALUE' ";
                 preStm = conn.prepareStatement(sql);
                 rs = preStm.executeQuery();
                 epl = new EarphoneList();
@@ -68,4 +68,6 @@ public class UserDAO {
         }
         return epl;
     }
+
+    
 }

@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.TransformerException;
-import thaitd.daos.CrawlASV;
+import thaitd.daos.CrawlWeb;
 
 /**
  *
@@ -26,8 +27,9 @@ import thaitd.daos.CrawlASV;
  */
 @WebServlet(name = "CrawlWebServlet", urlPatterns = {"/CrawlWebServlet"})
 public class CrawlWebServlet extends HttpServlet {
-    
-    private String invalidPage = "invalid.jsp";
+
+    private static final String invalidPage = "invalid.jsp";
+    private static final String crawlPage = "crawl.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,11 +44,10 @@ public class CrawlWebServlet extends HttpServlet {
             throws ServletException, IOException, XMLStreamException, SQLException, TransformerException, JAXBException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        CrawlASV crawl = new CrawlASV();
+        CrawlWeb crawl = new CrawlWeb();
         crawl.run();
-//        for (int i = 0; i < 30; i++) {
-//            crawl.crawLinkTNV("http://www.taingheviet.com/category/tai-nghe?page=" + i);
-//        }
+        RequestDispatcher rd = request.getRequestDispatcher(crawlPage);
+        rd.forward(request, response);
         out.close();
     }
 

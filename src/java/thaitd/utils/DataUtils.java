@@ -15,8 +15,8 @@ import java.net.URLConnection;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import thaitd.constants.StringXMLConstant;
-import thaitd.daos.CrawlASV;
+import thaitd.constants.StringConstant;
+import thaitd.daos.CrawlWeb;
 
 /**
  *
@@ -31,7 +31,7 @@ public class DataUtils {
         Properties prop = new Properties();
         InputStream input = null;
         try {
-            String filename = StringXMLConstant.PROPERTIES_PATH;
+            String filename = StringConstant.PROPERTIES_PATH;
             input = DataUtils.class.getClassLoader().getResourceAsStream(filename);
             prop.load(input);
         } catch (IOException ex) {
@@ -44,12 +44,12 @@ public class DataUtils {
         try {
             url = new URL(link);
             urlConn = url.openConnection();
-            inputStreamReader = new InputStreamReader(urlConn.getInputStream(), StringXMLConstant.ENCODING);
+            inputStreamReader = new InputStreamReader(urlConn.getInputStream(), StringConstant.ENCODING);
             bufferedReader = new BufferedReader(inputStreamReader);
         } catch (MalformedURLException ex) {
-            Logger.getLogger(CrawlASV.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrawlWeb.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(CrawlASV.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrawlWeb.class.getName()).log(Level.SEVERE, null, ex);
         }
         return bufferedReader;
     }

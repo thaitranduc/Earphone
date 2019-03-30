@@ -21,9 +21,14 @@
                 var tableElem = document.getElementById(tableId);
                 var newRow = tableElem.insertRow(tableElem.rows.length);
                 var newCell;
-                for (var i = 0; i < cells.length; i++) {
-                    newCell = newRow.insertCell(newRow.cells.length);
-                    newCell.innerHTML = cells[i];
+                console.log(cells.length);
+                if (cells.length < 1) {
+                    alert('Not found infomation');
+                } else {
+                    for (var i = 0; i < cells.length; i++) {
+                        newCell = newRow.insertCell(newRow.cells.length);
+                        newCell.innerHTML = cells[i];
+                    }
                 }
                 return newRow;
             }
@@ -39,7 +44,7 @@
                 if (node == null) {
                     return;
                 }
-                if (node.tagName.toString().toUpperCase() == "name") {
+                if (node.tagName == "name") {
                     var temp = node.firstChild.nodeValue;
                     if (temp.indexOf(strSearch, 0) > -1) {
                         count++;
@@ -49,6 +54,12 @@
                         cells[2] = sibling.firstChild.nodeValue;
                         var sibling = sibling.nextSibling;
                         cells[3] = "<img src='" + sibling.firstChild.nodeValue + "' width=200px/>";
+                        var sibling = sibling.nextSibling;
+                        cells[4] = sibling.firstChild.nodeValue;
+                        var sibling = sibling.nextSibling;
+                        cells[5] = sibling.firstChild.nodeValue;
+                        var sibling = sibling.nextSibling;
+                        cells[6] = sibling.firstChild.nodeValue;
                         addRow(tableName, cells);
                     }
                 }
@@ -117,6 +128,9 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Image</th>
+                <th>Frequency</th>
+                <th>Impedance</th>
+                <th>Sensitivity</th>
             </tr>
         </table>
     </body>

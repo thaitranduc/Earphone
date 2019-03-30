@@ -9,9 +9,23 @@ package thaitd.constants;
  *
  * @author ThaiT
  */
-public class StringXMLConstant {
+public class StringConstant {
 
     public static final String URL_ASV = "URL_ASV";
+    public static final String NEW_STRING_HTML_START = "NEW_STRING_HTML_START";
+    public static final String NEW_STRING_HTML_END = "NEW_STRING_HTML_END";
+    public static final String NEW_STRING_HTML_NAME = "NEW_STRING_HTML_NAME";
+    public static final String NEW_STRING_HTML_IMAGE = "NEW_STRING_HTML_IMAGE";
+    public static final String NEW_STRING_HTML_PRICE = "NEW_STRING_HTML_PRICE";
+    public static final String ASV_STRING_PAGE = "ASV_STRING_PAGE";
+    public static final String ASV_STRING_HTML_START = "ASV_STRING_HTML_START";
+    public static final String ASV_STRING_HTML_END = "ASV_STRING_HTML_END";
+    public static final String ASV_STRING_HTML_IMAGE = "ASV_STRING_HTML_IMAGE";
+    public static final String ASV_STRING_HTML_NAME = "ASV_STRING_HTML_NAME";
+    public static final String ASV_STRING_HTML_DETAIL = "ASV_STRING_HTML_DETAIL";
+    public static final String ASV_STRING_HTML_PRICE = "ASV_STRING_HTML_PRICE";
+    public static final String ASV_STRING_HTML_DETAIL_START = "ASV_STRING_HTML_DETAIL_START";
+    public static final String ASV_STRING_HTML_DETAIL_END = "ASV_STRING_HTML_DETAIL_END";
     public static final String URL_TNV = "URL_TNV";
     public static final String TNV_DETAIL_SPECIAL_SPAN_STYLE = "TNV_DETAIL_SPECIAL_SPAN_STYLE";
     public static final String TNV_HTML_NEXT_PAGE = "TNV_HTML_NEXT_PAGE";
@@ -35,13 +49,19 @@ public class StringXMLConstant {
     public static final String SENSITIVITY_1 = "db";
     public static final String SENSITIVITY_2 = "mw";
     public static final String FREQUENCY = "hz";
+    public static final String H2_TAG = "h2";
     public static final String TD_TAG = "td";
+    public static final String TD_OPEN_TAG = "<td>";
+    public static final String TD_CLOSE_TAG = "</td>";
     public static final String SPAN_TAG = "span";
+    public static final String P_TAG = "p";
     public static final String DIV_TAG = "div";
     public static final String IMG_TAG = "img";
+    public static final String CLASS_TAG = "class";
     public static final String SRC_TAG = "src";
     public static final String A_TAG = "a";
     public static final String HREF_TAG = "href";
+    public static final String UL_OPEN_TAG = "<ul>";
     public static final String NO_INFO = "NO VALUE";
     public static final String FREQUENCY_TYPE_1 = "BASS";
     public static final String FREQUENCY_TYPE_2 = "MID";
